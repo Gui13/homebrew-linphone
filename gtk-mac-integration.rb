@@ -19,7 +19,7 @@ class GtkMacIntegration < Formula
     (prefix + "src").install "src/testui.xml"
   end
 
-  def test
+  test do
     system "cd #{prefix} && ./test-integration"
   end
 end

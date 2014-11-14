@@ -4,7 +4,6 @@ class Antlr32 < Formula
   # Antlr4 is the current main, but some people may need Antlr3,
   # which has support for a C API.
   url "http://www.antlr3.org/download/antlr-3.2.jar"
-  version '3.2'
   homepage 'http://www.antlr.org/'
   sha1 'a571944d1c199ca7da187e163f0af3183e2a3be5'
 
