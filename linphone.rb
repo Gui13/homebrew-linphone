@@ -7,12 +7,15 @@ class Linphone < Formula
   sha1 'da45a653fc1afe2ebf2ded26676b83fe927707e7'
 
   depends_on "gui13/linphone/bellesip"
-  depends_on "marekjelen/gtk/gtk+-quartz"
+  depends_on "mattintosh4/gtk-mac-integration/gtk-mac-integration"
   depends_on "gettext"
   depends_on "libxml2"
   depends_on "ffmpeg"
   depends_on "speex"
   depends_on "readline"
+#  depends_on "srtp"
+  depends_on "libvpx"
+  depends_on "sqlite"
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
   depends_on "intltool" => :build
@@ -21,11 +24,7 @@ class Linphone < Formula
 
 
   def install
-	#system "./autogen.sh" # only for dev
-	# ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
-	# ENV.append_path "PKG_CONFIG_LIBDIR", "#{lib}/pkgconfig"
-
-    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking", "--disable-tests"
+    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking", "--disable-tests", "--disable-x11"
     system "make install"
   end
 end
