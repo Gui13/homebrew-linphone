@@ -10,7 +10,6 @@ class Libantlr34c < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
-#   system "cmake", ".", *std_cmake_args
     system "make install"
   end
 end
