@@ -7,8 +7,13 @@ class Bellesip < Formula
   homepage 'http://www.linphone.org/'
   depends_on "gui13/linphone/libantlr3.4c"
   depends_on "gui13/linphone/antlr3.2" => :build
+  depends_on "autoconf" => :build
+  depends_on "libtool" => :build
+  depends_on "automake" => :build
+
 
   def install
+    ENV.append_path "PATH", "/usr/local/bin"
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make install"
