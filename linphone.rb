@@ -2,9 +2,9 @@ require 'formula'
 
 class Linphone < Formula
 
-  url "https://github.com/Gui13/linphone/releases/download/3.7.1-gh/linphone-3.7.1-gh.tar.gz"
+  url "https://github.com/BelledonneCommunications/linphone.git", :using => :git, :revision => '1e1f663ff9531af59e24af73370d10c0cdc24831', :tag => '3.8.5'
+  head "https://github.com/BelledonneCommunications/linphone.git", :using => :git, :branch => 'master'
   homepage 'http://www.linphone.org/'
-  sha1 'da45a653fc1afe2ebf2ded26676b83fe927707e7'
 
   depends_on "gui13/linphone/bellesip"
   depends_on "mattintosh4/gtk-mac-integration/gtk-mac-integration"
@@ -24,7 +24,11 @@ class Linphone < Formula
 
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking", "--disable-tests", "--disable-x11"
+	  system "./autogen.sh" # only for dev
+	# ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
+	# ENV.append_path "PKG_CONFIG_LIBDIR", "#{lib}/pkgconfig"
+
+    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking", "--disable-tests"
     system "make install"
   end
 end

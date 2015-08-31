@@ -2,16 +2,14 @@ require 'formula'
 
 class Bellesip < Formula
 
-  url "https://github.com/Gui13/belle-sip/releases/download/1.3.4-gh/belle-sip-1.3.4-gh.tar.gz"
+  url "https://github.com/BelledonneCommunications/belle-sip.git", :using => :git, :revision => 'ad48d8c538ce998707e0e1daceac23ba3636ecfa', :tag => '1.4.1'
+  head "https://github.com/BelledonneCommunications/belle-sip.git", :using => :git, :branch => 'master'
   homepage 'http://www.linphone.org/'
-  sha1 '2f8b416ae2530ac221163815fedeb50aa27e8d31'
-  head 'git://git.linphone.org/belle-sip.git'
-
   depends_on "gui13/linphone/libantlr3.4c"
   depends_on "gui13/linphone/antlr3.2" => :build
 
   def install
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make install"
   end
