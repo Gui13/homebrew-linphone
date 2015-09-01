@@ -6,7 +6,7 @@ class Bellesip < Formula
   head "https://github.com/BelledonneCommunications/belle-sip.git", :using => :git, :branch => 'master'
   homepage 'http://www.linphone.org/'
   depends_on "gui13/linphone/libantlr3.4c"
-  depends_on "gui13/linphone/antlr3.2" => :build
+  depends_on "homebrew/versions/antlr3" => :build
   depends_on "autoconf" => :build
   depends_on "libtool" => :build
   depends_on "automake" => :build
