@@ -9,6 +9,7 @@ class Ortp < Formula
 
 	depends_on "cmake" => :build
 	depends_on "openssl"
+	depends_on "gui13/linphone/bctoolbox"
 
 	def install
 		system "cmake", ".", *std_cmake_args

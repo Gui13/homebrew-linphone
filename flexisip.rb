@@ -8,6 +8,7 @@ class Flexisip < Formula
 
 	depends_on "cmake" => :build
 	depends_on "openssl"
+	depends_on "gui13/linphone/bctoolbox"
 	depends_on "gui13/linphone/sofiasip"
 	depends_on "gui13/linphone/ortp"
 	depends_on "odb" => :optional
