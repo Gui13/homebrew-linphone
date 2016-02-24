@@ -11,7 +11,9 @@ class Bctoolbox < Formula
 	depends_on "mbedtls"
 
 	def install
-		system "cmake", ".", *std_cmake_args
+		args = std_cmake_args
+		args << "-DENABLE_MBEDTLS=ON -DENABLE_POLARSSL=NO"
+		system "cmake", ".", *args
 		system "make", "install"
 		
 	end
