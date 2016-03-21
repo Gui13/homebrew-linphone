@@ -8,7 +8,7 @@ class Bellesip < Formula
   depends_on "gui13/linphone/libantlr3.4c"
   depends_on "homebrew/versions/antlr3" => :build
   depends_on "gui13/linphone/bctoolbox" => :head
-  depends_on "cmake"
+  depends_on "cmake" => :build
   depends_on "polarssl"
 
 
